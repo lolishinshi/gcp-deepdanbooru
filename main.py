@@ -15,7 +15,7 @@ class DeepDanbooru:
         image = np.asarray(image, dtype=np.float32) / 255
         return image
 
-    def predict(self, image: Image.Image, threshold=0.5) -> dict[str, float]:
+    def predict(self, image: Image.Image, threshold=0.7) -> dict[str, float]:
         image = self.process_image(image)
         preds = self.model.run(None, {'input_1': [image]})[0][0]
 
