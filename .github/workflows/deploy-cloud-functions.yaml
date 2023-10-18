@@ -16,11 +16,14 @@ jobs:
       - name: Download model
         uses: robinraju/release-downloader@v1.8
         with:
-          repo: lolishinshi/gcp-deepdanbooru
+          repository: lolishinshi/gcp-deepdanbooru
           tag: resnet_custom_v3
           fileName: resnet_custom_v3.tar.gz
           extract: true
           out-file-path: model
+
+      - name: Clean archive
+        run: rm -rf model/*.tar.gz
 
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v1
